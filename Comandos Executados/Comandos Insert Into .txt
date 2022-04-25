@@ -27,8 +27,26 @@ VALUES
 ('Ana Paula Antunes Araujo','ana_araujo@edu.univali.br', 'testebancoforum')
 ;
 
+INSERT INTO CLIENTE
+(nome, cnpjcpf, email) 
+VALUES 
+('Ana Paula Antunes Araujo','12362514285416','ana_araujo@edu.univali.br' ),
+('Eduardo Martins', '82363514285413','dudu_martins@bol.com.br'),
+('Talita Meireles', '52362514285425','tali_meireles@gmail.com.br')
+;
+
 INSERT INTO CARROS
 (codigomodelo, ano, cor, descricao, observacao) 
 VALUES 
 (20,'2009', 'Branco', 'Fiat Punto branco', 'Veículo com adaptação para deficientes físicos')
+;
+
+INSERT INTO CARROS
+(codigomodelo, ano, cor, descricao, observacao) 
+VALUES 
+(25,'2020', 'preto', 'Fiat Toro preto', 'Veículo pode ser utilizado para tragetos ingremes'),
+(34,'1998', 'prata', 'Fusca prata', 'Veículo de baixo custo'),
+(31,'2020', 'vermelho', 'UP vermelho', 'Veículo com baixo consumo de combustivel'),
+(24,'2019', 'branco', 'Mobi branco', 'Veículo com baixo consumo de combustivel'),
+(21,'2015', 'prata', 'Siena prata', 'Veículo sedan')
 ;

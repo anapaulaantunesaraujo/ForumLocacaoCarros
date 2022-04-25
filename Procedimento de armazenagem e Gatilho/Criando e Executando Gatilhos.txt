@@ -1,0 +1,57 @@
+------CRIANDO GATILHO
+CREATE TRIGGER trg_AlteraSituacaoCarro
+
+ON LOCACAO
+FOR INSERT
+AS 
+BEGIN
+
+DECLARE @CARRO INT,
+        @INICIO DATETIME,
+		@TERMINO DATETIME
+
+
+   SELECT @CARRO = codigocarro, 
+          @INICIO = dataretirada, 
+		  @TERMINO = datadevolucao 
+
+     FROM INSERTED
+
+      UPDATE CARROS
+   SET InicioUltimaMovimentacao = @INICIO,
+       TerminoUltimaMovimentacao = @TERMINO,
+	   situacaoAtual = 'Alugado'
+   WHERE codigo = @CARRO
+     AND CAST(@TERMINO AS DATE) >= CAST(GETDATE() AS DATE);
+   
+
+      UPDATE CARROS
+   SET InicioUltimaMovimentacao = @INICIO,
+       TerminoUltimaMovimentacao = @TERMINO,
+	   situacaoAtual = 'Disponivel'
+   WHERE codigo = @CARRO
+     AND CAST(@TERMINO AS DATE) < CAST(GETDATE() AS DATE);
+   
+
+END
+GO
+
+
+------EXECUTANDO GATILHO INSERINDO DADOS NA TABELA MOVIMENTACAO FINANCEIRA
+
+
+INSERT INTO LOCACAO
+(codigocarro, codigocliente, dataretirada, datadevolucao, valor)
+VALUES
+(5, 4, convert(datetime,'20220401 10:34:09 AM',5), convert(datetime,'20220415 10:34:09 AM',5), 300.25),
+(3, 6, convert(datetime,'20220405 10:34:09 AM',5), convert(datetime,'20220417 10:34:09 AM',5), 300.25);
+
+INSERT INTO LOCACAO
+(codigocarro, codigocliente, dataretirada, datadevolucao, valor)
+VALUES
+(8, 5,convert(datetime,'20220411 10:34:09 AM',5), convert(datetime,'20220430 10:34:09 AM',5), 800.30);
+
+-----CONSULTANDO RESULTADOS
+SELECT * FROM LOCACAO
+
+SELECT * FROM CARROS

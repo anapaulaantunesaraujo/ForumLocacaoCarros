@@ -38,11 +38,19 @@ CREATE TABLE LOCACAO(
 codigo int IDENTITY(1,1) NOT NULL,
 codigocarro int  NOT NULL,
 codigocliente int  NOT NULL,
-dataretirada DATETIME,
-datedevolucao DATETIME,
-valor DECIMAL (10,5),
+dataretirada DATETIME NOT NULL,
+datadevolucao DATETIME NOT NULL,
+valor DECIMAL (10,5) NOT NULL,
 observacao text,
 PRIMARY KEY (codigo),
 FOREIGN KEY (codigocarro) REFERENCES CARROS(codigo),
-FOREIGN KEY (codigocliente) REFERENCES USUARIOS(codigo)
+FOREIGN KEY (codigocliente) REFERENCES CLIENTE(codigo)
+)
+
+CREATE TABLE CLIENTE(
+codigo int IDENTITY(1,1) NOT NULL,
+nome varchar(60)  NOT NULL,
+cnpjcpf varchar(14) NOT NULL,
+email varchar(30)NOT NULL,
+PRIMARY KEY (codigo)
 )

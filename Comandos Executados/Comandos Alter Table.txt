@@ -1,0 +1,18 @@
+
+---ALTER TABLE
+
+ALTER TABLE CARROS 
+ADD siatucaoAtual VARCHAR(30);
+
+
+ALTER TABLE CARROS 
+ADD UltimaMovimentacao DATETIME;
+
+ALTER TABLE CARROS
+DROP COLUMN UltimaMovimentacao;
+
+ALTER TABLE CARROS 
+ADD InicioUltimaMovimentacao DATETIME;
+
+ALTER TABLE CARROS 
+ADD TerminoUltimaMovimentacao DATETIME;

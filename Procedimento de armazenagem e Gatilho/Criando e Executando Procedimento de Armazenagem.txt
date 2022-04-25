@@ -1,0 +1,13 @@
+CREATE PROCEDURE marcaQueMaisTemos 
+AS
+       SELECT TOP 1 C.codigo 'CodigoMarca', C.descricao 'DescricaoMarca', COUNT(DISTINCT A.codigo) 'Quantidade'
+         FROM CARROS A
+        INNER JOIN MODELOS B ON B.codigo = A.codigomodelo
+        INNER JOIN MARCAS C ON C.codigo = B.codigomarca
+         GROUP BY C.codigo, C.descricao
+		 ORDER BY 3 DESC
+;
+
+----- EXECUTANDO PROCEDIMENTO DE ARMAZENAGEM
+
+EXEC marcaQueMaisTemos;
