@@ -1,0 +1,16 @@
+------SELECTs
+
+SELECT * 
+  FROM CARROS
+
+SELECT * 
+  FROM MODELOS
+
+SELECT B.descricao 'Marca', A.descricao 'Modelo' 
+  FROM MODELOS A
+ INNER JOIN MARCAS B ON B.codigo = A.codigomarca
+
+SELECT C.descricao 'Marca', B.descricao 'Modelo', A.cor, A.ano
+  FROM CARROS A
+ INNER JOIN MODELOS B ON B.codigo = A.codigomodelo
+ INNER JOIN MARCAS C ON C.codigo = B.codigomarca

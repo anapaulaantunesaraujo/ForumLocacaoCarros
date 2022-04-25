@@ -1,0 +1,13 @@
+-------UPDATEs
+
+UPDATE USUARIOS
+SET senha = 'teste'
+where nome like 'Ana Paula Antunes%'
+
+UPDATE CARROS
+SET observacao = cast(cast(observacao as varchar (100)) + ', especificamente deficientes que utilizam cadeira de rodas' as text)
+where codigo = 3
+
+UPDATE MARCAS
+SET descricao = 'chevrolet'
+where codigo = 4

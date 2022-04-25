@@ -1,0 +1,48 @@
+CREATE DATABASE ALUGACARROS
+
+CREATE TABLE  MARCAS (
+codigo int IDENTITY(1,1) NOT NULL,
+descricao varchar(40) NOT NULL,
+PRIMARY KEY (codigo)
+)
+
+CREATE TABLE MODELOS (
+codigo int IDENTITY(1,1) NOT NULL,
+codigomarca int  NOT NULL,
+descricao varchar(40) NOT NULL,
+PRIMARY KEY (codigo),
+FOREIGN KEY (codigomarca) REFERENCES MARCAS(codigo)
+)
+
+
+CREATE TABLE CARROS (
+codigo int IDENTITY(1,1) NOT NULL,
+codigomodelo int  NOT NULL,
+ano varchar(4)  NOT NULL,
+cor varchar(40),
+descricao varchar(60),
+observacao text NOT NULL,
+PRIMARY KEY (codigo),
+FOREIGN KEY (codigomodelo) REFERENCES MODELOS(codigo)
+)
+
+CREATE TABLE USUARIOS(
+codigo int IDENTITY(1,1) NOT NULL,
+nome varchar(30)NOT NULL,
+email varchar(30)NOT NULL,
+senha varchar(30)NOT NULL,
+PRIMARY KEY (codigo)
+)
+
+CREATE TABLE LOCACAO(
+codigo int IDENTITY(1,1) NOT NULL,
+codigocarro int  NOT NULL,
+codigocliente int  NOT NULL,
+dataretirada DATETIME,
+datedevolucao DATETIME,
+valor DECIMAL (10,5),
+observacao text,
+PRIMARY KEY (codigo),
+FOREIGN KEY (codigocarro) REFERENCES CARROS(codigo),
+FOREIGN KEY (codigocliente) REFERENCES USUARIOS(codigo)
+)

@@ -1,0 +1,34 @@
+---INSERT
+
+INSERT INTO MARCAS
+(descricao) VALUES ('Fiat'),('Ford'),('Ford'), 
+('Foton'),('Honda'),('Hyundai'),('Iveco'),
+('JAC'),('Jaguar'),('Jeep'),('Kia'),
+('Lamborghini'),('Land Rover'),('Lexus'),
+('Maserati'),('Lifan'),('McLaren'),
+('Mercedes-AMG'),('Mercedes-Benz'),
+('Mini'),('Mitsubishi'),('Nissan'),
+('Peugeot'),('Porsche'),('RAM'),('Renault'),
+('Rolls-Royce'),('Subaru'),('Suzuki'),
+('Toyota'),('Volkswagen'),('Volvo');
+
+INSERT INTO MODELOS
+(codigomarca, descricao) 
+VALUES 
+(1,'Punto'), (1,'Siena'), (1,'Uno'),
+(1,'Palio'), (1,'Mobi'), (1,'Toro'), (1,'Strada'),
+(1,'Idea'), (1,'Palio Weekend'), (31,'Gol'), (31,'Fox'),
+(31,'UP'), (31,'Saveiro'), (31,'Voyage'), (31,'Fusca')
+;
+
+INSERT INTO USUARIOS
+(nome, email, senha) 
+VALUES 
+('Ana Paula Antunes Araujo','ana_araujo@edu.univali.br', 'testebancoforum')
+;
+
+INSERT INTO CARROS
+(codigomodelo, ano, cor, descricao, observacao) 
+VALUES 
+(20,'2009', 'Branco', 'Fiat Punto branco', 'Veículo com adaptação para deficientes físicos')
+;
